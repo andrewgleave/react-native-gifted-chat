@@ -141,6 +141,7 @@ export default class MessageContainer extends React.Component {
         <ListView
           enableEmptySections={true}
           keyboardShouldPersistTaps={true}
+          keyboardDismissMode={this.props.keyboardDismissMode}
           automaticallyAdjustContentInsets={false}
           initialListSize={20}
           pageSize={20}
@@ -162,11 +163,13 @@ MessageContainer.defaultProps = {
   user: {},
   renderFooter: null,
   renderMessage: null,
+  keyboardDismissMode: 'interactive',
   onLoadEarlier: () => {
   },
 };
 
 MessageContainer.propTypes = {
+  keyboardDismissMode: ListView.propTypes.keyboardDismissMode,
   messages: React.PropTypes.array,
   user: React.PropTypes.object,
   renderFooter: React.PropTypes.func,
